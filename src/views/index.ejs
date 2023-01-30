@@ -25,44 +25,46 @@
             <table class="w3-table-all w3-hoverable">
                 <thead>
                     <tr class="w3-light-grey">
-                        <th>ID</th>
+                        <th>STT</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th colspan="2">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% for (let i=0; i < dataUser.length ; i++) {%>
-                        <tr>
-                            <td style="width: 5%;">
-                                <%= dataUser[i].id %>
+                    <% let n=1 %>
 
-                            </td>
-                            <td style="width: 30%;">
-                                <%= dataUser[i].firstName %>
-                            </td>
-                            <td style="width: 40%;">
-                                <%= dataUser[i].lastName %>
-                            </td>
-                            <td class="button" style="display: flex; gap: 10px;">
+                        <% for (let i=0; i < dataUser.length ; i++) {%>
+                            <tr>
+                                <td style="width: 5%;">
+                                    <%= n++ %>
 
-                                <a href="/detail/user/<%= dataUser[i].id %>">Detail</a>
+                                </td>
+                                <td style="width: 30%;">
+                                    <%= dataUser[i].firstName %>
+                                </td>
+                                <td style="width: 40%;">
+                                    <%= dataUser[i].lastName %>
+                                </td>
+                                <td class="button" style="display: flex; gap: 10px;">
 
-                                <form action="/edit-user/<%= dataUser[i].id %>" method="get">
-                                    <button href="edit" type="submit">Edit</button>
-                                </form>
+                                    <a href="/detail/user/<%= dataUser[i].id %>">Detail</a>
 
-
-                                <form action="/delete-user" method="post">
-                                    <input type="text" hidden value="<%= dataUser[i].id %>" name="userId" />
-                                    <button type="submit">Delete</button>
-                                </form>
-                            </td>
+                                    <form action="/edit-user/<%= dataUser[i].id %>" method="get">
+                                        <button href="edit" type="submit">Edit</button>
+                                    </form>
 
 
-                            </td>
-                        </tr>
-                        <% } %>
+                                    <form action="/delete-user" method="post">
+                                        <input type="text" hidden value="<%= dataUser[i].id %>" name="userId" />
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </td>
+
+
+                                </td>
+                            </tr>
+                            <% } %>
                 </tbody>
 
             </table>
